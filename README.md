@@ -1,7 +1,9 @@
 # team-26-nordic
 
 Assembly Lead - Ciaran Byles-Ho
+
 HomePage Lead - Quinn Bazuk
+
 Map Lead - Ciaran Byles-Ho
 
 The repository consists of different branches and features. In the main file exists the homepage and map features that are currently under development. The following features also have branches that will eventually be merged with the main branch:
