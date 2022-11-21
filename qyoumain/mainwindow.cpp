@@ -13,3 +13,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_studentMapButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
