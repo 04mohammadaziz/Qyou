@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>854</width>
-    <height>553</height>
+    <width>996</width>
+    <height>704</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,14 +18,13 @@
 background-color: qlineargradient(spread:pad, x1:0.2, y1:0.3, x2:0.7, y2:1.2, stop:0 rgba(0, 36, 82, 255), stop:1 rgba(0, 56, 110, 255))
 }</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>0</y>
-      <width>851</width>
-      <height>551</height>
+      <width>1788</width>
+      <height>1520</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -37,102 +36,45 @@ background-color: qlineargradient(spread:pad, x1:0.2, y1:0.3, x2:0.7, y2:1.2, st
      <number>0</number>
     </property>
     <widget class="QWidget" name="main">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="styleSheet">
       <string notr="true">QMainWindow {
 background-color: qlineargradient(spread:pad, x1:0.2, y1:0.3, x2:0.7, y2:1.2, stop:0 rgba(0, 36, 82, 255), stop:1 rgba(0, 56, 110, 255))
 }</string>
      </property>
-     <widget class="QPushButton" name="studentWellnessButton_5">
+     <widget class="QWidget" name="horizontalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>550</x>
-        <y>430</y>
-        <width>251</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>251</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>81</height>
-       </size>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	font: 500 28pt &quot;Quicksand Medium&quot;;
-	font: 22pt &quot;Quicksand&quot;;
-color: #000000;
-border: 2px solid #555;
-border-radius: 20px;
-border-style: outset;
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #fff, stop: 1 #DDD
-);
-padding: 10px;
-}</string>
-      </property>
-      <property name="text">
-       <string>Student Wellness</string>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="logo">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
+        <x>0</x>
         <y>0</y>
-        <width>571</width>
-        <height>551</height>
+        <width>981</width>
+        <height>701</height>
        </rect>
       </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>../images/Logo v1-midgreyline.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="toDoButton">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>130</y>
-        <width>251</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>251</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>81</height>
-       </size>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="toDoButton">
+           <property name="minimumSize">
+            <size>
+             <width>251</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>81</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
 	font: 500 28pt &quot;Quicksand Medium&quot;;
 	font: 22pt &quot;Quicksand&quot;;
 color: #000000;
@@ -145,40 +87,34 @@ radius: 1.35, stop: 0 #fff, stop: 1 #DDD
 );
 padding: 10px;
 }</string>
-      </property>
-      <property name="text">
-       <string>To Do List</string>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="scheduleButton">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>30</y>
-        <width>251</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>251</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>81</height>
-       </size>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
+           </property>
+           <property name="text">
+            <string>To Do List</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="studentMapButton">
+           <property name="minimumSize">
+            <size>
+             <width>251</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>81</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
 	font: 500 28pt &quot;Quicksand Medium&quot;;
 	font: 22pt &quot;Quicksand&quot;;
 color: #000000;
@@ -191,40 +127,34 @@ radius: 1.35, stop: 0 #fff, stop: 1 #DDD
 );
 padding: 10px;
 }</string>
-      </property>
-      <property name="text">
-       <string>Schedule</string>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="studentMapButton">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>230</y>
-        <width>251</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>251</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>81</height>
-       </size>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
+           </property>
+           <property name="text">
+            <string>Student Map</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="gpaButton_4">
+           <property name="minimumSize">
+            <size>
+             <width>251</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>81</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
 	font: 500 28pt &quot;Quicksand Medium&quot;;
 	font: 22pt &quot;Quicksand&quot;;
 color: #000000;
@@ -237,40 +167,34 @@ radius: 1.35, stop: 0 #fff, stop: 1 #DDD
 );
 padding: 10px;
 }</string>
-      </property>
-      <property name="text">
-       <string>Student Map</string>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="gpaButton_4">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>330</y>
-        <width>251</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>251</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>81</height>
-       </size>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
+           </property>
+           <property name="text">
+            <string>GPA Calculator</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="studentWellnessButton_5">
+           <property name="minimumSize">
+            <size>
+             <width>251</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>81</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
 	font: 500 28pt &quot;Quicksand Medium&quot;;
 	font: 22pt &quot;Quicksand&quot;;
 color: #000000;
@@ -283,33 +207,132 @@ radius: 1.35, stop: 0 #fff, stop: 1 #DDD
 );
 padding: 10px;
 }</string>
-      </property>
-      <property name="text">
-       <string>GPA Calculator</string>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
+           </property>
+           <property name="text">
+            <string>Student Wellness</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="scheduleButton">
+           <property name="minimumSize">
+            <size>
+             <width>251</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>81</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	font: 500 28pt &quot;Quicksand Medium&quot;;
+	font: 22pt &quot;Quicksand&quot;;
+color: #000000;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #DDD
+);
+padding: 10px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Schedule</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="logo">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>../images/Logo v1-midgreyline.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="studentMap">
-     <widget class="QSlider" name="horizontalSlider">
+     <widget class="QScrollArea" name="scrollArea">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>300</y>
-        <width>160</width>
-        <height>22</height>
+        <x>29</x>
+        <y>20</y>
+        <width>791</width>
+        <height>511</height>
        </rect>
       </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+      <property name="widgetResizable">
+       <bool>true</bool>
       </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>789</width>
+         <height>509</height>
+        </rect>
+       </property>
+       <widget class="QScrollBar" name="verticalScrollBar">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>170</y>
+          <width>121</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>-10</x>
+          <y>0</y>
+          <width>801</width>
+          <height>511</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../images/qmaptest.jpg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </widget>
    </widget>
   </widget>
- </widget>
  <resources/>
  <connections/>
 </ui>
