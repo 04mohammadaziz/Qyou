@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls.Material
 import QtQuick.Layouts
+import com.qYouCalendar
+
 
 ApplicationWindow {
     id: window
@@ -11,13 +13,13 @@ ApplicationWindow {
     title: qsTr("Hello World")
 
     property date currentDate: new Date()
-    property date selectedDate: new Date()
-
+    //property date selectedDate: new Date()
     property int month: currentDate.getMonth()
+    property int selectedMonth: currentDate.getMonth()
     property int year: currentDate.getFullYear()
-    property int day: currentDate.getDay()
+    property int day: currentDate.getDate()
     property variant months: ["January","February","March","April","May","June","July","August","September","October","November","December"]
-
+    property bool today
 
     header: ToolBar {
         id: toolBar
@@ -88,7 +90,7 @@ ApplicationWindow {
                 anchors.left: eventButtons.left
                 color: "transparent"
                 Button {
-                    id: addEvent
+                    id: addEventButton
                     text: qsTr("Add event")
                     anchors.centerIn: parent
                     onClicked: addEventPopup.open()
@@ -112,8 +114,52 @@ ApplicationWindow {
         }
         Popup {
             id: addEventPopup
-            width: 600
-            height: 400
+            width: 400
+            height: 250
+            closePolicy: Popup.NoAutoClose
+
+            Column{
+                TextField{
+                    id: titleField
+                    placeholderText: "title"
+                }
+
+                ComboBox{
+                    width: 200
+                    model: ["15 minutes", "30 minutes", "45 minutes", "60 minutes", "90 minutes", "120 minutes", "180 minutes", "all day"]
+                }
+
+                CheckBox{
+                    id: checkRepeatable
+                    text: qsTr("Repeating?")
+                }
+
+                Row{
+                    anchors.right: parent.right
+                    Button{
+                       id: submitButton
+                       text: "Submit"
+                       onClicked: {
+                         if (titleField.text === ""){
+                             addEventPopup.focus = true;
+                          }
+                         else{
+                            addEventPopup.close();
+                            console.log(checkRepeatable.checked);
+
+                            console.log(titleField.text);
+                            eventModel.addEvent(currentDate, 30, "HELLO", true);
+                         }
+                       }
+                    }
+
+                   Button{
+                       id: cancelButton
+                       text: "Cancel"
+                       onClicked: addEventPopup.close()
+                   }
+                }
+            }
 
 
         }
@@ -136,7 +182,7 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 horizontalAlignment: Text.AlignHCenter
                 fontSizeMode: Text.Fit
-                text: "06 November \n Today's Events:"
+                text:  months[selectedMonth] + " " +  day + "\n Today's Events:"
                 color: "#000000"
             }
         }
@@ -207,9 +253,50 @@ ApplicationWindow {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            delegate: MonthGridDelegate {
+            delegate: Item{
                 id: gridDelegate
-                visibleMonth: grid.month
+                //height: 100
+                //width: 100
+                ColumnLayout{
+                    id: root
+                    ListView{
+                        model: EventModel// {
+                            //date: new Date(root.year, root.month, root.day)
+                        //}
+                    }
+
+                    Rectangle{
+                        id: highLights
+                        width: 36
+                        height: 36
+                        //anchors.centerIn: gridDelegate
+                        color: "transparent"
+                        Label {
+                            id: dayText
+                            //horizontalAlignment: Text.AlignHCenter
+                            anchors.centerIn: parent
+                            topPadding: 4
+                            opacity: month === window.month ? 1 : 0.3
+                            text: model.day
+
+                            //Layout.fillWidth: true
+
+                        }
+                        MouseArea{
+                            anchors.fill: parent
+                            onClicked: {
+                                window.day = model.date.getDate() + 1
+                                window.selectedMonth = model.date.getMonth()
+
+
+
+
+                            }
+                            cursorShape: Qt.PointingHandCursor
+
+                        }
+                    }
+                 }
             }
 
             background: Item {
@@ -248,22 +335,7 @@ ApplicationWindow {
                     }
                 }
             }
-            onClicked: {
-
-                //window.day = date.getUTCDay()
-                console.log(date)
-            }
         }
-    }
-
-
-
-    Item {
-        id: eventListHeader
-
-
-
-
     }
 
 }
