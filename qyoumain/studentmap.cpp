@@ -40,7 +40,6 @@ void MainWindow::on_zoomInButton_clicked()
 void MainWindow::on_zoomOutButton_clicked()
 {
     ui->mapBackground->setGeometry(0, 0, static_cast<int>(ui->mapBackground->width()/1.1), static_cast<int>(ui->mapBackground->height()/1.1));
-    ui->zoomInButton->setText("test");
 //    qDebug() << static_cast<int>(ui->mapBackground->height());
 }
 

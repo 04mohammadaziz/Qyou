@@ -16,6 +16,9 @@ public:
     ~MainWindow();
 
 private slots:
+
+
+    // Map Feature
     void determineMap();
     void on_studentMapButton_clicked();
     void on_zoomOutButton_clicked();
