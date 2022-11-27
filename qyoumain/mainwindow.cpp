@@ -14,8 +14,5 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_studentMapButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(1);
-}
+
 

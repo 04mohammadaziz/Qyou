@@ -16,7 +16,11 @@ public:
     ~MainWindow();
 
 private slots:
+    void determineMap();
     void on_studentMapButton_clicked();
+    void on_zoomOutButton_clicked();
+    void on_zoomInButton_clicked();
+    void on_fieldsCheckBox_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;
