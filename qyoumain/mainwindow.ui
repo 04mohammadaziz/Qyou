@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>768</width>
+    <width>929</width>
     <height>544</height>
    </rect>
   </property>
@@ -335,7 +335,7 @@ QPushButton:hover {
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>0</height>
+               <height>36</height>
               </size>
              </property>
              <property name="styleSheet">
@@ -495,8 +495,8 @@ Additional resources are also provided for students.</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
-                    <height>100</height>
+                    <width>150</width>
+                    <height>150</height>
                    </size>
                   </property>
                   <property name="maximumSize">
@@ -515,7 +515,7 @@ Additional resources are also provided for students.</string>
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../../wellness/images/Logo v1-midgreyline.png</pixmap>
+                   <pixmap>../images/wellnesslogos/wellnessicon-academic.png</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -592,8 +592,8 @@ hr { height: 1px; border-width: 0; }
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
-                    <height>100</height>
+                    <width>150</width>
+                    <height>150</height>
                    </size>
                   </property>
                   <property name="maximumSize">
@@ -615,7 +615,7 @@ hr { height: 1px; border-width: 0; }
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../../wellness/images/Logo v1-whiteline.png</pixmap>
+                   <pixmap>../images/wellnesslogos/wellnessicon-mental.png</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -705,8 +705,8 @@ hr { height: 1px; border-width: 0; }
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
-                    <height>100</height>
+                    <width>150</width>
+                    <height>150</height>
                    </size>
                   </property>
                   <property name="maximumSize">
@@ -728,7 +728,7 @@ hr { height: 1px; border-width: 0; }
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../../wellness/images/Logo v1-whiteline.png</pixmap>
+                   <pixmap>../images/wellnesslogos/wellnessicon-physical.png</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -776,7 +776,7 @@ hr { height: 1px; border-width: 0; }
                    <string notr="true"/>
                   </property>
                   <property name="text">
-                   <string>FINANCIAL SUPPROT</string>
+                   <string>FINANCIAL SUPPORT</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -793,8 +793,8 @@ hr { height: 1px; border-width: 0; }
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
-                    <height>100</height>
+                    <width>150</width>
+                    <height>150</height>
                    </size>
                   </property>
                   <property name="maximumSize">
@@ -813,7 +813,7 @@ hr { height: 1px; border-width: 0; }
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../../wellness/images/Logo v1.png</pixmap>
+                   <pixmap>../images/wellnesslogos/wellnessicon-financial.png</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
