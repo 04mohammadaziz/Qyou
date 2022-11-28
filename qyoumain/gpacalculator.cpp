@@ -19,11 +19,6 @@ std::string pointToGrade(double grade){
   else return "F";
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    close();
-}
-
 void MainWindow::on_CalculateGPA_clicked()
 {
     double total_grade_points = 0;
@@ -73,8 +68,6 @@ void MainWindow::on_AddCourse_clicked()
     std::string name  = ui->newName->text().toStdString();
     int credit        = ui->newCredit->text().toInt();
     std::string grade = ui->newGrade->text().toStdString();
-
-    qDebug() << credit;
 
     if(credit <=0){
         QMessageBox messageBox;

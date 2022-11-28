@@ -32,7 +32,6 @@ private slots:
     void on_fieldsCheckBox_stateChanged(int arg1);
 
     // gpaCalculator
-    void on_pushButton_clicked();
     void on_CalculateGPA_clicked();
     void on_AddCourse_clicked();
     void on_DeleteCourse_clicked();
@@ -43,6 +42,10 @@ private slots:
     void on_studentMapMenuButton_clicked();
 
     void on_gpaCalculatorMenuButton_clicked();
+
+    void on_studentWellnessMenuButton_clicked();
+
+    void on_studentWellnessButton_clicked();
 
 private:
     Ui::MainWindow *ui;
