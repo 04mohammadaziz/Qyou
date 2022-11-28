@@ -24,12 +24,6 @@ void MainWindow::determineMap()
 //    qDebug() << source;
 }
 
-
-void MainWindow::on_studentMapButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
 void MainWindow::on_zoomInButton_clicked()
 {
 //    ui->scrollAreaWidgetContents->setGeometry(0, 0, static_cast<int>(ui->scrollAreaWidgetContents->width()*1.1), static_cast<int>(ui->scrollAreaWidgetContents->height()*1.1));
@@ -43,8 +37,17 @@ void MainWindow::on_zoomOutButton_clicked()
 //    qDebug() << static_cast<int>(ui->mapBackground->height());
 }
 
+void MainWindow::on_buildingsCheckBox_clicked()
+{
+    determineMap();
+}
 
 void MainWindow::on_fieldsCheckBox_stateChanged(int arg1)
+{
+    determineMap();
+}
+
+void MainWindow::on_facilitiesCheckBox_clicked()
 {
     determineMap();
 }

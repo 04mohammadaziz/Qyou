@@ -337,6 +337,25 @@ QCheckBox:hover {
            <number>50</number>
           </property>
           <item>
+           <widget class="QPushButton" name="studentMapMenuButton">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>406</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Back to Main Menu</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QCheckBox" name="buildingsCheckBox">
             <property name="maximumSize">
              <size>
@@ -429,10 +448,16 @@ QCheckBox:hover {
         </item>
         <item>
          <widget class="QScrollArea" name="scrollArea">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>1000</width>
-            <height>1000</height>
+            <width>1500</width>
+            <height>1500</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -535,13 +560,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
           <widget class="QWidget" name="mapLayout">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>750</width>
-             <height>750</height>
+             <width>1500</width>
+             <height>1500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -560,15 +588,15 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
             <item row="0" column="0">
              <widget class="QLabel" name="mapBackground">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
               <property name="minimumSize">
                <size>
-                <width>750</width>
-                <height>750</height>
+                <width>1500</width>
+                <height>1500</height>
                </size>
               </property>
               <property name="maximumSize">
@@ -601,6 +629,9 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
               <property name="scaledContents">
                <bool>true</bool>
               </property>
+              <property name="alignment">
+               <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+              </property>
              </widget>
             </item>
            </layout>
@@ -611,6 +642,25 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
       </widget>
       <widget class="QWidget" name="GPACalculator">
        <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QPushButton" name="gpaCalculatorMenuButton">
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>160</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Back to Main Menu</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QLabel" name="label">
           <property name="font">
