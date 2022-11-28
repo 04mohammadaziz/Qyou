@@ -20,7 +20,7 @@
    <string>Qyou</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QTextBrowser" name="introsummary">
     <property name="geometry">
      <rect>
       <x>450</x>
@@ -38,7 +38,7 @@ hr { height: 1px; border-width: 0; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The Student Wellness page gives Queen's University students access to a list of resources supporting academic, mental, physical, and financial aid.&lt;br /&gt;Additional resources are also provided for students.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -85,10 +85,10 @@ hr { height: 1px; border-width: 0; }
    <widget class="QFrame" name="academicresources">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>60</x>
       <y>240</y>
-      <width>441</width>
-      <height>361</height>
+      <width>381</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -105,28 +105,22 @@ hr { height: 1px; border-width: 0; }
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="academic_label">
        <property name="text">
         <string>ACADEMIC RESOURCES</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QLabel" name="label_6">
-       <property name="maximumSize">
-        <size>
-         <width>7000</width>
-         <height>7000</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
+     <item>
+      <widget class="QLabel" name="acaddemic_image">
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../../wellness_icons/wellnessicon-academic.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -135,10 +129,10 @@ hr { height: 1px; border-width: 0; }
    <widget class="QFrame" name="mentalhealth">
     <property name="geometry">
      <rect>
-      <x>500</x>
+      <x>530</x>
       <y>240</y>
-      <width>441</width>
-      <height>361</height>
+      <width>381</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -155,28 +149,22 @@ hr { height: 1px; border-width: 0; }
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_5">
      <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="mental_label">
        <property name="text">
         <string>MENTAL HEALTH</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QLabel" name="label_8">
-       <property name="maximumSize">
-        <size>
-         <width>7000</width>
-         <height>7000</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
+     <item>
+      <widget class="QLabel" name="mental_image">
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../../wellness_icons/wellnessicon-mental.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -185,10 +173,10 @@ hr { height: 1px; border-width: 0; }
    <widget class="QFrame" name="physicalhealth">
     <property name="geometry">
      <rect>
-      <x>970</x>
+      <x>1000</x>
       <y>240</y>
-      <width>441</width>
-      <height>361</height>
+      <width>381</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -205,28 +193,22 @@ hr { height: 1px; border-width: 0; }
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_6">
      <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="physical_label">
        <property name="text">
         <string>PHYSICAL HEALTH</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QLabel" name="label_10">
-       <property name="maximumSize">
-        <size>
-         <width>7000</width>
-         <height>7000</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
+     <item>
+      <widget class="QLabel" name="physical_image">
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../../wellness_icons/wellnessicon-physical.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -235,10 +217,10 @@ hr { height: 1px; border-width: 0; }
    <widget class="QFrame" name="financialsupport">
     <property name="geometry">
      <rect>
-      <x>1440</x>
-      <y>240</y>
-      <width>441</width>
-      <height>361</height>
+      <x>1470</x>
+      <y>230</y>
+      <width>391</width>
+      <height>381</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -255,34 +237,28 @@ hr { height: 1px; border-width: 0; }
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_7">
      <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="financial_label">
        <property name="text">
-        <string>FINANCIAL SUPPROT</string>
+        <string>FINANCIAL SUPPORT</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QLabel" name="label_12">
-       <property name="maximumSize">
-        <size>
-         <width>7000</width>
-         <height>7000</height>
-        </size>
-       </property>
-       <property name="baseSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
+     <item>
+      <widget class="QLabel" name="financial_image">
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../../wellness_icons/wellnessicon-financial.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="academic_frame">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -297,7 +273,7 @@ hr { height: 1px; border-width: 0; }
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QTextBrowser" name="textBrowser_2">
+    <widget class="QTextBrowser" name="academic_text">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -327,7 +303,7 @@ hr { height: 1px; border-width: 0; }
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_2">
+   <widget class="QFrame" name="mental_frame">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -342,7 +318,7 @@ hr { height: 1px; border-width: 0; }
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QTextBrowser" name="textBrowser_3">
+    <widget class="QTextBrowser" name="mental_text">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -391,7 +367,7 @@ hr { height: 1px; border-width: 0; }
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_3">
+   <widget class="QFrame" name="physical_frame">
     <property name="geometry">
      <rect>
       <x>970</x>
@@ -406,7 +382,7 @@ hr { height: 1px; border-width: 0; }
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QTextBrowser" name="textBrowser_4">
+    <widget class="QTextBrowser" name="physical_text">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -427,7 +403,7 @@ hr { height: 1px; border-width: 0; }
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_4">
+   <widget class="QFrame" name="financial_frame">
     <property name="geometry">
      <rect>
       <x>1440</x>
@@ -442,7 +418,7 @@ hr { height: 1px; border-width: 0; }
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QTextBrowser" name="textBrowser_5">
+    <widget class="QTextBrowser" name="financial_text">
      <property name="geometry">
       <rect>
        <x>20</x>
