@@ -2,7 +2,8 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls.Material
 import QtQuick.Layouts
-import com.qYouCalendar
+//import "eventModel.h"
+
 
 
 ApplicationWindow {
@@ -11,9 +12,9 @@ ApplicationWindow {
     height: 600
     visible: true
     title: qsTr("Hello World")
-
+    color: "#002452"
     property date currentDate: new Date()
-    //property date selectedDate: new Date()
+    property date selectedDate: new Date(currentDate)
     property int month: currentDate.getMonth()
     property int selectedMonth: currentDate.getMonth()
     property int year: currentDate.getFullYear()
@@ -24,7 +25,7 @@ ApplicationWindow {
     header: ToolBar {
         id: toolBar
         background: Rectangle{
-            color: "#002452"
+            color: "#b90e31"
             implicitHeight: 40
         }
 
@@ -124,14 +125,15 @@ ApplicationWindow {
                     placeholderText: "title"
                 }
 
+                TextField{
+                    id: startTime
+                    placeholderText: "Start time"
+                 }
+
+
                 ComboBox{
                     width: 200
-                    model: ["15 minutes", "30 minutes", "45 minutes", "60 minutes", "90 minutes", "120 minutes", "180 minutes", "all day"]
-                }
-
-                CheckBox{
-                    id: checkRepeatable
-                    text: qsTr("Repeating?")
+                    model: ["15 minutes", "30 minutes", "45 minutes", "60 minutes", "90 minutes", "120 minutes", "180 minutes"]
                 }
 
                 Row{
@@ -145,10 +147,9 @@ ApplicationWindow {
                           }
                          else{
                             addEventPopup.close();
-                            console.log(checkRepeatable.checked);
-
+                            //eventModel.addEvent(titleField.text, )
                             console.log(titleField.text);
-                            eventModel.addEvent(currentDate, 30, "HELLO", true);
+
                          }
                        }
                     }
@@ -172,7 +173,7 @@ ApplicationWindow {
             anchors.left: window.left
             border.width: 1
             border.color: "#000000"
-            color: "#fabd0f"
+            //color: "#fabd0f"
 
             Label{
                 id: eventDayLabel
@@ -194,7 +195,7 @@ ApplicationWindow {
             anchors.left: window.left
             border.width: 1.3
             border.color: "#000000"
-            color: "#b90e31"
+            //color: "#002452"
 
             Label{
                 font.pixelSize: 20
@@ -257,13 +258,6 @@ ApplicationWindow {
                 id: gridDelegate
                 //height: 100
                 //width: 100
-                ColumnLayout{
-                    id: root
-                    ListView{
-                        model: EventModel// {
-                            //date: new Date(root.year, root.month, root.day)
-                        //}
-                    }
 
                     Rectangle{
                         id: highLights
@@ -287,17 +281,17 @@ ApplicationWindow {
                             onClicked: {
                                 window.day = model.date.getDate() + 1
                                 window.selectedMonth = model.date.getMonth()
-
-
-
-
+                                window.selectedDate = model.date.addDays(1)
+                                //window.selectedDate.setDate(window.selectedDate.getDate()+1)
+                                //window.selectedDate.setDate(window.selectedDate.getDate()+1)
+                                console.log(selectedDate.getDate())
                             }
                             cursorShape: Qt.PointingHandCursor
 
                         }
                     }
                  }
-            }
+
 
             background: Item {
                 x: grid.leftPadding
