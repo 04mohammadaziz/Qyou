@@ -279,12 +279,14 @@ ApplicationWindow {
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
-                                window.day = model.date.getDate() + 1
-                                window.selectedMonth = model.date.getMonth()
-                                window.selectedDate = model.date.addDays(1)
+                                //model.date.setDate(4)
+                                //window.day = model.date.getUTCDate()
+                                //window.selectedMonth = model.date.getMonth()
+                                //model.date.setDate()
+                                //window.selectedDate = model.date.getDate() + 1
+                                window.selectedDate = new Date(model.date.setDate(model.date.getDate()+1))
                                 //window.selectedDate.setDate(window.selectedDate.getDate()+1)
-                                //window.selectedDate.setDate(window.selectedDate.getDate()+1)
-                                console.log(selectedDate.getDate())
+                                console.log(selectedDate)
                             }
                             cursorShape: Qt.PointingHandCursor
 
