@@ -8,15 +8,19 @@
 #include <QTableWidget>
 
 std::string pointToGrade(double grade){
-  if (grade == 4.00)  return "A";
-  else if (grade < 4.00 && grade >= 3.67 ) return "A-";
-  else if (grade < 3.67 && grade >= 3.33)  return "B+";
-  else if (grade < 3.33 && grade >= 2.67)  return "B" ;
-  else if (grade < 2.67 && grade >= 2.33)  return "B-";
-  else if (grade < 2.33 && grade >= 2.00)  return "C+";
-  else if (grade < 2.00 && grade >= 1.00)  return "C" ;
-  else if (grade < 1.00 && grade >= 0.00)  return "D" ;
-  else return "F";
+   if (grade == 4.3)  return "A+";
+     else if (grade < 4.3 && grade >= 4.1) return "A";
+     else if (grade < 4.1 && grade >= 3.7) return "A-";
+     else if (grade < 3.7 && grade >= 3.3)  return "B+";
+     else if (grade < 3.3 && grade >= 2.7)  return "B" ;
+     else if (grade < 2.7 && grade >= 2.3)  return "B-";
+     else if (grade < 2.3 && grade >= 2.00)  return "C+";
+     else if (grade < 2.00 && grade >= 1.8)  return "C" ;
+     else if (grade < 1.8 && grade >= 1.4)  return "C-" ;
+     else if (grade < 1.4 && grade >= 1.1)  return "D+" ;
+     else if (grade < 1.1 && grade >= 0.8)  return "D" ;
+     else if (grade < 0.8 && grade >= 0.1)  return "D-" ;
+     else return "F";
 }
 
 void MainWindow::on_CalculateGPA_clicked()
@@ -33,7 +37,7 @@ void MainWindow::on_CalculateGPA_clicked()
     ui->average->setText(QString::fromStdString(pointToGrade(total_grade / courses.size())));
     ui->total->setText(QString::number(total_credit));
 
-    ui->gpa->setText(QString::number(total_grade_points/total_grade));
+   ui->gpa->setText(QString::number(total_grade_points/courses.size()));
 
 }
 
