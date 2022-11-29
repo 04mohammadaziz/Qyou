@@ -8,7 +8,15 @@ ApplicationWindow {
     height: 480
     title: qsTr("ToDoList")
 
+    TopNav{
+        id: topNav
+    }
+
     ToDoList {
         anchors.centerIn: parent
+    }
+
+    BotNav{
+        id: botNav
     }
 }

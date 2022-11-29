@@ -3,5 +3,7 @@
         <file>main.qml</file>
         <file>ToDoList.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>TopNav.qml</file>
+        <file>BotNav.qml</file>
     </qresource>
 </RCC>
