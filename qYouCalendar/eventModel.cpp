@@ -27,6 +27,7 @@ QVariantList EventModel::eventsForDate(const QDateTime &date) {
             json.insert("name",  QString(elements[1]));
             json.insert("startTime",  QString(elements[2]));
             json.insert("endTime", QString(elements[3]));
+            json.insert("id", QString(elements[0] + ',' + elements[1]));
             events.append(json);
 
         }
@@ -56,18 +57,30 @@ void EventModel::addEvent(Event &event) {
     qDebug() << event.getID()  << ',' << event.startTime() << ',' << event.endTime()  << '\n';
     file.close();
 }
-/*
-void EventModel::removeEvent(Event &event) {
 
-    QSqlQuery query;
-    query.prepare("DELETE FROM Events WHERE EventID == :id");
-    query.bindValue(":id", event.getID());
-
-    if (!query.exec()) {
-        qFatal("Delete failed");
+void EventModel::removeEvent(const QString id) {
+    QFile file(filename);
+    QVector<QString> linesToBeReInserted;
+    if (!file.open(QFile::ReadOnly  | QIODevice::Text)){
+        return;
+    }
+    while (!file.atEnd()) {
+        QByteArray line = file.readLine();
+        qDebug() << line<< '\n';
+        QList<QByteArray> elements = line.split(',');
+        QString compare = elements[0] + "," + elements[1];
+        if (compare != id){
+            linesToBeReInserted.push_back(line);
+        }
+    }
+    file.close();
+    file.open(QFile::WriteOnly | QFile::Truncate | QIODevice::Text);
+    QTextStream out(&file);
+    for (int i = 0; i < linesToBeReInserted.size(); i++){
+        out << linesToBeReInserted.at(i);
     }
 }
-*/
+
 
 
 void EventModel::addEvent(const QString name, const QDateTime date, const QString startTime, const QString endTime) {
@@ -80,12 +93,8 @@ void EventModel::addEvent(const QString name, const QDateTime date, const QStrin
     evt.setEndTime(endTime);
     addEvent(evt);
 }
-/*
-void EventModel::removeEvent(const int id) {
-    Event evt;
-    evt.setID(id);
-    removeEvent(evt);
-}
-*/
+
+
+
 
 

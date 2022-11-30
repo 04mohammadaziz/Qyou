@@ -16,10 +16,9 @@ class EventModel: public QObject {
         Q_INVOKABLE QObject* createEvent();
         Q_INVOKABLE void addEvent(const QString name, const QDateTime date, const QString startTime, const QString endTime);
 
-       // Q_INVOKABLE void removeEvent(const int id);
+       Q_INVOKABLE void removeEvent(const QString id);
 
         void addEvent(Event &event);
-        //void removeEvent(Event &event);
 
     private:
         QString filename = "EventList.txt";

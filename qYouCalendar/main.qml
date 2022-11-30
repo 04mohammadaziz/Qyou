@@ -20,8 +20,11 @@ ApplicationWindow {
     property int selectedMonth: currentDate.getMonth()
     property int year: currentDate.getFullYear()
     property int day: currentDate.getDate()
+    property var val
     property string startTime
     property string endTime
+    property string events: "No events for today"
+    property string deleteEvents
     property variant months: ["January","February","March","April","May","June","July","August","September","October","November","December"]
     property bool today
 
@@ -115,12 +118,24 @@ ApplicationWindow {
                     id: removeEvent
                     text: qsTr("Remove event")
                     anchors.centerIn: parent
-
+                    onClicked: {
+                        if (val[0] !== undefined){
+                            deleteEventPopup.open();
+                        }
+                        else {
+                            deleteEventDialog.open()
+                        }
+                    }
                 }
             }
-
-
         }
+        Dialog {
+            id: deleteEventDialog
+            title: "No event exists for this date"
+            modal: true
+            standardButtons: Dialog.Ok
+        }
+
         Popup {
             id: addEventPopup
             width: 400
@@ -220,6 +235,7 @@ ApplicationWindow {
                             startTime = startHour + ":" + startMinute;
                             endTime = endHour + ":" + endMinute;
                             eventModel.addEvent(titleField.text, selectedDate, startTime, endTime);
+                             titleField.text === "";
                             //console.log(titleField.text);
 
                          }
@@ -230,6 +246,55 @@ ApplicationWindow {
                        id: cancelButton
                        text: "Cancel"
                        onClicked: addEventPopup.close()
+                   }
+                }
+            }
+
+
+        }
+
+        Popup {
+            id: deleteEventPopup
+            width: 400
+            height: 250
+            closePolicy: Popup.NoAutoClose
+
+
+
+            Column{
+                Label{
+                    id: deleteEventsLabel
+                    text: events + "Select a number to delete : "
+                }
+
+                TextField{
+                    id: removeEventField
+                    placeholderText: "Number"
+                }
+
+                Row{
+                    anchors.right: parent.right
+                    Button{
+                       id: deleteButton
+                       text: "Delete item"
+                       onClicked: {
+                         if (removeEventField.text === ""){
+                             deleteEventPopup.focus = true;
+                          }
+                         else{
+                            deleteEventPopup.close();
+                            let remove = removeEventField.text -1;
+                            //console.log(remove);
+                            //console.log(window.val[0].id);
+                            eventModel.removeEvent(val[remove].id);
+                         }
+                       }
+                    }
+
+                   Button{
+                       id: cancelDeleteButton
+                       text: "Cancel"
+                       onClicked: deleteEventPopup.close()
                    }
                 }
             }
@@ -276,7 +341,7 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 horizontalAlignment: Text.AlignHCenter
                 fontSizeMode: Text.Fit
-                text: "Nothing "
+                text: events
                 color: "#000000"
             }
         }
@@ -354,15 +419,16 @@ ApplicationWindow {
                                 window.selectedDate = new Date(model.date.setDate(model.date.getDate()+1))
                                 window.day = window.selectedDate.getDate()
                                 selectedMonth = window.selectedDate.getMonth()
-                                let val = eventModel.eventsForDate(selectedDate)
-
-                                if (val !== null){
+                                val = eventModel.eventsForDate(selectedDate)
+                                events = "";
+                                if (val[0] !== undefined){
                                     for (let i = 0; i < val.length; i++){
-                                        console.log(val[i].name, val[i].startTime, val[i].endTime);
+                                        //console.log(i+1);
+                                        events += (parseInt(i, 10)+1  + " " + val[i].name + " " + val[i].startTime + " " + val[i].endTime);
                                     }
                                 }
                                 else {
-                                    console.log("val == null");
+                                    events = "No events for today"
                                 }
 
 
