@@ -1,4 +1,5 @@
-/*#pragma once
+#ifndef EVENTMODEL_H
+#define EVENTMODEL_H
 
 #include <QList>
 #include <QObject>
@@ -11,17 +12,19 @@ class EventModel: public QObject {
     public:
         EventModel();
 
-        Q_INVOKABLE QList<QObject*> eventsForDate(const QDate &date);
+        Q_INVOKABLE QVariantList eventsForDate(const QDateTime &date);
         Q_INVOKABLE QObject* createEvent();
-        Q_INVOKABLE void addEvent(const QString name, const QDateTime startDate, const QDateTime endDate);
-        Q_INVOKABLE void removeEvent(const int id);
+        Q_INVOKABLE void addEvent(const QString name, const QDateTime date, const QString startTime, const QString endTime);
+
+       // Q_INVOKABLE void removeEvent(const int id);
 
         void addEvent(Event &event);
-        void removeEvent(Event &event);
+        //void removeEvent(Event &event);
 
-
+    private:
+        QString filename = "EventList.txt";
 
 };
-*/
 
+#endif
 

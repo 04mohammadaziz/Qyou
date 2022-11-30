@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls.Material
 import QtQuick.Layouts
+
 //import "eventModel.h"
 
 
@@ -19,8 +20,15 @@ ApplicationWindow {
     property int selectedMonth: currentDate.getMonth()
     property int year: currentDate.getFullYear()
     property int day: currentDate.getDate()
+    property string startTime
+    property string endTime
     property variant months: ["January","February","March","April","May","June","July","August","September","October","November","December"]
     property bool today
+
+    function formatText(count, modelData) {
+        var data = modelData;
+        return data.toString().length < 2 ? "0" + data : data;
+    }
 
     header: ToolBar {
         id: toolBar
@@ -119,21 +127,78 @@ ApplicationWindow {
             height: 250
             closePolicy: Popup.NoAutoClose
 
+
+
             Column{
                 TextField{
                     id: titleField
                     placeholderText: "title"
                 }
 
-                TextField{
-                    id: startTime
-                    placeholderText: "Start time"
-                 }
+                Row{
 
+                    Tumbler {
+                        id: startHourTumbler
+                        model: 24
+                        height: 50
+                        visibleItemCount: 3
+                        delegate: Text{
+                            text: formatText(Tumbler.tumbler.count, modelData)
+                            color: startHourTumbler.visualFocus ? startHourTumbler.palette.highlight : startHourTumbler.palette.text
+                            font: startHourTumbler.font
+                            opacity: 1.0 - Math.abs(Tumbler.displacement) / (startHourTumbler.visibleItemCount / 2)
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                    }
+                    Tumbler {
+                        id: startMinuteTumbler
+                        model: 60
+                        height: 50
+                        visibleItemCount: 3
+                        delegate: Text{
+                            text: formatText(Tumbler.tumbler.count, modelData)
+                            color: startMinuteTumbler.visualFocus ? startMinuteTumbler.palette.highlight : startMinuteTumbler.palette.text
+                            font: startMinuteTumbler.font
+                            opacity: 1.0 - Math.abs(Tumbler.displacement) / (startMinuteTumbler.visibleItemCount / 2)
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                    }
+                    Label{
+                        anchors.topMargin: 30
+                        verticalAlignment: Text.AlignVCenter
+                        text: " to "
+                    }
 
-                ComboBox{
-                    width: 200
-                    model: ["15 minutes", "30 minutes", "45 minutes", "60 minutes", "90 minutes", "120 minutes", "180 minutes"]
+                    Tumbler {
+                        id: endHourTumbler
+                        model: 24
+                        height: 50
+                        visibleItemCount: 3
+                        delegate: Text{
+                            text: formatText(Tumbler.tumbler.count, modelData)
+                            color: endHourTumbler.visualFocus ? endHourTumbler.palette.highlight : endHourTumbler.palette.text
+                            font: endHourTumbler.font
+                            opacity: 1.0 - Math.abs(Tumbler.displacement) / (endHourTumbler.visibleItemCount / 2)
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                    }
+                    Tumbler {
+                        id: endMinuteTumbler
+                        model: 60
+                        height: 50
+                        visibleItemCount: 3
+                        delegate: Text{
+                            text: formatText(Tumbler.tumbler.count, modelData)
+                            color: endMinuteTumbler.visualFocus ? endMinuteTumbler.palette.highlight : endMinuteTumbler.palette.text
+                            font: endMinuteTumbler.font
+                            opacity: 1.0 - Math.abs(Tumbler.displacement) / (endMinuteTumbler.visibleItemCount / 2)
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                    }
                 }
 
                 Row{
@@ -147,8 +212,15 @@ ApplicationWindow {
                           }
                          else{
                             addEventPopup.close();
-                            //eventModel.addEvent(titleField.text, )
-                            console.log(titleField.text);
+
+                            var startHour = startHourTumbler.currentIndex.toString().length < 2 ? "0" + startHourTumbler.currentIndex : startHourTumbler.currentIndex;
+                            var startMinute = startMinuteTumbler.currentIndex.toString().length < 2 ? "0" + startMinuteTumbler.currentIndex : startMinuteTumbler.currentIndex;
+                            var endHour = endHourTumbler.currentIndex.toString().length < 2 ? "0" + endHourTumbler.currentIndex : endHourTumbler.currentIndex;
+                            var endMinute = endMinuteTumbler.currentIndex.toString().length < 2 ? "0" + endMinuteTumbler.currentIndex : endMinuteTumbler.currentIndex;
+                            startTime = startHour + ":" + startMinute;
+                            endTime = endHour + ":" + endMinute;
+                            eventModel.addEvent(titleField.text, selectedDate, startTime, endTime);
+                            //console.log(titleField.text);
 
                          }
                        }
@@ -183,7 +255,7 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 horizontalAlignment: Text.AlignHCenter
                 fontSizeMode: Text.Fit
-                text:  months[selectedMonth] + " " +  day + "\n Today's Events:"
+                text:  months[selectedMonth] + " " +  window.day + "\n Today's Events:"
                 color: "#000000"
             }
         }
@@ -279,14 +351,21 @@ ApplicationWindow {
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
-                                //model.date.setDate(4)
-                                //window.day = model.date.getUTCDate()
-                                //window.selectedMonth = model.date.getMonth()
-                                //model.date.setDate()
-                                //window.selectedDate = model.date.getDate() + 1
                                 window.selectedDate = new Date(model.date.setDate(model.date.getDate()+1))
-                                //window.selectedDate.setDate(window.selectedDate.getDate()+1)
-                                console.log(selectedDate)
+                                window.day = window.selectedDate.getDate()
+                                selectedMonth = window.selectedDate.getMonth()
+                                let val = eventModel.eventsForDate(selectedDate)
+
+                                if (val !== null){
+                                    for (let i = 0; i < val.length; i++){
+                                        console.log(val[i].name, val[i].startTime, val[i].endTime);
+                                    }
+                                }
+                                else {
+                                    console.log("val == null");
+                                }
+
+
                             }
                             cursorShape: Qt.PointingHandCursor
 

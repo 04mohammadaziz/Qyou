@@ -1,6 +1,5 @@
-/*#ifndef EVENT_H
+#ifndef EVENT_H
 #define EVENT_H
-
 #include <QObject>
 #include <QDateTime>
 #include <QString>
@@ -9,39 +8,45 @@ class Event: public QObject {
 
     Q_OBJECT
 
-    Q_PROPERTY(int id READ getID WRITE setID CONSTANT)
+    Q_PROPERTY(QString id READ getID WRITE setID NOTIFY idChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(QDateTime startDate READ startDate WRITE setStartDate NOTIFY startDateChanged)
-    Q_PROPERTY(QDateTime endDate READ endDate WRITE setEndDate NOTIFY endDateChanged)
+    Q_PROPERTY(QDateTime date READ date WRITE setDate NOTIFY dateChanged)
+    Q_PROPERTY(QString startTime READ startTime WRITE setStartTime NOTIFY startTimeChanged)
+    Q_PROPERTY(QString endTime READ endTime WRITE setEndTime NOTIFY endTimeChanged)
 
     public:
         explicit Event(QObject* parent = nullptr);
 
-        int getID() const;
-        void setID(const int &id);
+        QString getID() const;
+        void setID(const QString &id);
 
         QString name() const;
         void setName(const QString &name);
 
-        QDateTime startDate() const;
-        void setStartDate(const QDateTime &startDate);
+        QDateTime date() const;
+        void setDate(const QDateTime &date);
 
-        QDateTime endDate() const;
-        void setEndDate(const QDateTime &endDate);
+        QString startTime() const;
+        void setStartTime(const QString &startTime);
+
+        QString endTime() const;
+        void setEndTime(const QString &endTime);
 
     private:
 
-        int evtID;
+        QString evtID;
         QString evtName;
-        QDateTime evtStartDate;
-        QDateTime evtEndDate;
+        QDateTime evtDate;
+        QString evtStartTime;
+        QString evtEndTime;
 
     signals:
 
+        void idChanged(const QString &id);
         void nameChanged(const QString &name);
-        void startDateChanged(const QDateTime &startDate);
-        void endDateChanged(const QDateTime &endDate);
+        void dateChanged(const QDateTime &date);
+        void startTimeChanged(const QString &startTime);
+        void endTimeChanged(const QString &endTime);
 };
 
-#endif // EVENT_H
-*/
+#endif

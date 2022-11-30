@@ -1,55 +1,42 @@
-/*
+
 #include "eventModel.h"
 #include <QStandardPaths>
 #include <QDir>
 #include <QDateTime>
+#include <QFile>
+#include <QDebug>
+#include <QJsonObject>
 
 EventModel::EventModel() {
     //createConnection();
 }
 
-QList<QObject*> EventModel::eventsForDate(const QDate &date) {
+QVariantList EventModel::eventsForDate(const QDateTime &date) {
+    QVariantList events;
+    QString compareDate = date.toString("dd.MM.yyyy");
+    QFile in(filename);
+    if (!in.open(QFile::ReadOnly | QIODevice::Text)){
+        return events;
+    }
+    while (!in.atEnd()) {
 
-    QList<QObject*> events;
+        QByteArray line = in.readLine();
+        QList<QByteArray> elements = line.split(',');
+        if (elements[0] == compareDate){
+            QJsonObject json;
+            json.insert("name",  QString(elements[1]));
+            json.insert("startTime",  QString(elements[2]));
+            json.insert("endTime", QString(elements[3]));
+            events.append(json);
 
-    query.prepare("SELECT * FROM Events WHERE date(:dateobj) >= date(EventStart) AND date(:dateobj) <= date(EventEnd)");
-    query.bindValue(":dateobj", date.toString("yyyy-MM-dd"));
-
-    bool x = query.exec();
-
-    if (!x) {
-        qFatal("Query execution failed");
+        }
     }
 
-    while (query.next()) {
-
-//        qInfo() << query.value("EventStart") << " " << query.value("EventEnd");
-
-        Event* curevt = new Event(this);
-        curevt->setID(query.value("EventID").toInt());
-        curevt->setName(query.value("EventName").toString());
-        curevt->setInfo(query.value("EventInformation").toString());
-
-
-        QDateTime startDate, endDate, repeats;
-        startDate.setDate(query.value("EventStart").toDate());
-        startDate.setTime(query.value("EventStart").toDateTime().time());
-        endDate.setDate(query.value("EventEnd").toDate());
-        endDate.setTime(query.value("EventEnd").toDateTime().time());
-        repeats.setDate(query.value("EventRepeating").toDate());
-        repeats.setTime(query.value("EventRepeating").toDateTime().time());
-
-//        qInfo() << query.value("EventEnd") << query.value("EventEnd").toDate() << query.value("EventEnd").toDateTime().time();
-
-        curevt->setStartDate(startDate);
-        curevt->setEndDate(endDate);
-
-
-        events.append(curevt);
-    }
 
 //    qInfo() << "Finished searching events" << " " << events;
-
+//    for (int i = 0; i < events.length(); i++){
+ //       qDebug() << (events[i].name());
+  //  }
     return events;
 }
 
@@ -60,29 +47,16 @@ QObject* EventModel::createEvent() {
 
 
 void EventModel::addEvent(Event &event) {
-
-    QSqlQuery query;
-    query.prepare("INSERT INTO Events (EventName, EventInformation, EventStart, EventEnd, EventRepeating) VALUES (?, ?, ?, ?, ?)");
-    query.addBindValue(event.name());
-
-    query.addBindValue(event.startDate().toString("yyyy-MM-dd HH:mm:ss"));
-    query.addBindValue(event.endDate().toString("yyyy-MM-dd HH:mm:ss"));
-
-
-    qInfo() << "::: Adding event";
-
-    bool b = query.exec();
-    qInfo() << query.executedQuery();
-
-    if (!b) {
-        qFatal("Insert failed");
-    } else {
-
-        qInfo() << "::: Data insert";
+    QFile file(filename);
+    if (!file.open(QFile::Append | QIODevice::Text)){
+        return;
     }
-
+    QTextStream out(&file);
+    out << event.getID() << ',' << event.startTime() << ',' << event.endTime() << '\n';
+    qDebug() << event.getID()  << ',' << event.startTime() << ',' << event.endTime()  << '\n';
+    file.close();
 }
-
+/*
 void EventModel::removeEvent(Event &event) {
 
     QSqlQuery query;
@@ -93,22 +67,25 @@ void EventModel::removeEvent(Event &event) {
         qFatal("Delete failed");
     }
 }
+*/
 
 
-
-void EventModel::addEvent(const QString name, const QDateTime startDate, const QDateTime endDate) {
+void EventModel::addEvent(const QString name, const QDateTime date, const QString startTime, const QString endTime) {
     Event evt;
+    QString id = date.toString("dd.MM.yyyy") + "," + name;
+    evt.setID(id);
     evt.setName(name);
-    evt.setStartDate(startDate);
-    evt.setEndDate(endDate);
+    evt.setDate(date);
+    evt.setStartTime(startTime);
+    evt.setEndTime(endTime);
     addEvent(evt);
 }
-
+/*
 void EventModel::removeEvent(const int id) {
     Event evt;
     evt.setID(id);
     removeEvent(evt);
 }
-
-
 */
+
+

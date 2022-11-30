@@ -2,7 +2,6 @@
 #include <QQmlApplicationEngine>
 #include <QQmlEngine>
 #include <QQmlContext>
-
 #include "eventModel.h"
 
 int main(int argc, char *argv[])
@@ -27,8 +26,8 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
 
-   // EventModel* eventModel = new EventModel();
-    //engine.rootContext()->setContextProperty("eventModel", eventModel);
+    EventModel* eventModel = new EventModel();
+    engine.rootContext()->setContextProperty("eventModel", eventModel);
 
     engine.load(url);
 

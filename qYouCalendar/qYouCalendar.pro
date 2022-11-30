@@ -6,7 +6,6 @@ QT += quick
 
 SOURCES += \
         event.cpp \
-        event.cpp \
         eventModel.cpp \
         main.cpp
 
