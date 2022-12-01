@@ -12,7 +12,7 @@ ApplicationWindow {
     width: 800
     height: 600
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("qYou Calendar")
     color: "#002452"
     property date currentDate: new Date()
     property date selectedDate: new Date(currentDate)
@@ -305,7 +305,7 @@ ApplicationWindow {
         Rectangle{
             id: dateEvent
             width: window.width/3
-            height: window.height/10
+            height: window.height/15
             //anchors.topMargin: 40
             anchors.left: window.left
             border.width: 1
@@ -320,10 +320,30 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 horizontalAlignment: Text.AlignHCenter
                 fontSizeMode: Text.Fit
-                text:  months[selectedMonth] + " " +  window.day + "\n Today's Events:"
+                text:  months[selectedMonth] + " " + day
                 color: "#000000"
             }
         }
+        /*
+        Rectangle{
+            width: window.width/3
+            height: window.height/15
+            //anchors.topMargin: 40
+            anchors.left: window.left
+            border.width: 1
+            border.color: "#000000"
+            Label{
+                //font.bold: true
+                font.pixelSize: 20
+                anchors.fill: parent
+                anchors.horizontalCenter: parent.horizontalCenter
+                horizontalAlignment: Text.AlignHCenter
+                fontSizeMode: Text.Fit
+                text:  "Today's events:"
+                color: "#000000"
+            }
+        }
+        */
         Rectangle{
 
             width: window.width/3
@@ -341,7 +361,7 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 horizontalAlignment: Text.AlignHCenter
                 fontSizeMode: Text.Fit
-                text: events
+                text: "Today's events: \n" +events
                 color: "#000000"
             }
         }
@@ -378,6 +398,9 @@ ApplicationWindow {
             locale: grid.locale
             font.bold: false
             Layout.fillHeight: true
+            delegate: Text{
+                color: "#002452"
+            }
         }
 
         MonthGrid {
@@ -409,7 +432,7 @@ ApplicationWindow {
                             topPadding: 4
                             opacity: month === window.month ? 1 : 0.3
                             text: model.day
-
+                            color: "#FFFFFF"
                             //Layout.fillWidth: true
 
                         }
