@@ -1,10 +1,6 @@
 #include "todolist.h"
 
-ToDoList::ToDoList(QObject *parent) : QObject(parent)
-{
-    mItems.append({ true, QStringLiteral("Wash the car") });
-    mItems.append({ false, QStringLiteral("Fix the sink") });
-}
+ToDoList::ToDoList(QObject *parent) : QObject(parent) {}
 
 QVector<ToDoItem> ToDoList::items() const
 {
