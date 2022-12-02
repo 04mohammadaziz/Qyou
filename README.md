@@ -1,5 +1,3 @@
-# team-26-nordic
-
 Qyou - A student utility app.
 
 Assembly Lead - Ciaran Byles-Ho
@@ -15,6 +13,8 @@ Map Lead - Ciaran Byles-Ho
 GPA Calculator Lead - Mohammad Aziz
 
 Schedule Lead - Dario Fernandes 
+
+Wellness Lead - Richard Bryan Concio, Anna Wasylyk
 
 The repository consists of different branches and features. In the main file exists the homepage and map features that are currently under development. 
 The following features also have branches that will eventually be merged with the main branch:
