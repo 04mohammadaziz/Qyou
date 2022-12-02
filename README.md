@@ -1,9 +1,29 @@
-# team-26-nordic
+Qyou - A student utility app.
 
-Assembly Leads - Jonathan Sumabat, Zeerak Asim
+Assembly Lead - Ciaran Byles-Ho
 
-This branch focuses on the 'ToDo List' section of the application. It should have the functions of adding an item, marking items as completed, and removing marked items.
+GUI Lead - Zeerak Asim
 
-Users would be able to navigate through the page and find necessary resources offered by the university.
+ToDoList Lead - Jonathan Sumabat
+
+HomePage Lead - Quinn Bazuk
+
+Map Lead - Ciaran Byles-Ho
+
+GPA Calculator Lead - Mohammad Aziz
+
+Schedule Lead - Dario Fernandes 
+
+Wellness Lead - Richard Bryan Concio, Anna Wasylyk
+
+The repository consists of different branches and features. In the main file exists the homepage and map features that are currently under development. 
+The following features also have branches that will eventually be merged with the main branch:
+- Calendar
+- ToDoList
+- Wellness
+- GPA Calculator
+- Schedule
+
+The main program currently consists of the main home page with buttons to the 5 main features. The map feature will be the first to be added, followed by the other features upon completion
 
 The program is built using Qt Studio and C++.
