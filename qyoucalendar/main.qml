@@ -386,6 +386,7 @@ ApplicationWindow {
                 font: dayOfWeekRow.font
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
+		color: "#FFFFFF"
             }
 
             Layout.column: 1
