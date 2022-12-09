@@ -1,0 +1,11 @@
+release/main.o
+release/todomodel.o
+release/todolist.o
+release/BotNav_qml.o
+release/TopNav_qml.o
+release/ToDoList_qml.o
+release/main_qml.o
+release/qmlcache_loader.o
+release/qrc_qml_qmlcache.o
+release/moc_todomodel.o
+release/moc_todolist.o

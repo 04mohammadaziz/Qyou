@@ -5,7 +5,7 @@
 
 void MainWindow::determineMap()
 {
-    QString source = "../images/qmap/qmap_";
+    QString source = "images/qmap/qmap_";
     bool boolValues[3] = {ui->buildingsCheckBox->isChecked(), ui->fieldsCheckBox->isChecked(), ui->facilitiesCheckBox->isChecked()};
     for (int i = 0; i < 3; i++) {
 //        qDebug() << boolValues[i];

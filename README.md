@@ -1,16 +1,23 @@
 # team-26-nordic
+> Zeerak Asim • Mohammad Aziz • Quinn Bazuk • Ciaran Byles-Ho
+> Richard Bryan Concio • Dario Fernandes • Jonathan Sumabat • Anna Wasylyk
 
-Assembly Lead - Ciaran Byles-Ho
-
-HomePage Lead - Quinn Bazuk
-
-Map Lead - Ciaran Byles-Ho
-
-The repository consists of different branches and features. In the main file exists the homepage and map features that are currently under development. The following features also have branches that will eventually be merged with the main branch:
-- Calendar
-- ToDoList
-- Wellness
-
-The main program currently consists of the main home page with buttons to the 5 main features. The map feature will be the first to be added. 
+The main program currently consists of the main home page with buttons to the 5 main features. 
 
 The program is built using Qt Studio and C++.
+
+Use the final-build file to view the final application.
+
+## Project Division Leads
+Assembly Lead - Ciaran Byles-Ho
+User Interface Lead - Zeerak Asim
+
+| Lead | Component |
+| ----------- | ----------- |
+| Quinn Bazuk (and Ciaran Byles-Ho) | Home Page |
+| Dario Fernandes | Calendar |
+| Jonathan Sumabat (and Zeerak Asim) | To Do List |
+| Ciaran Byles-Ho | Student Map |
+| Mohammad Aziz | GPA Calculator |
+| Richard Bryan Concio and Anna Wasylyk | Student Wellness |
+| ----------- | ----------- |

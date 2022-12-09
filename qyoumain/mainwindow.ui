@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>929</width>
+    <width>964</width>
     <height>544</height>
    </rect>
   </property>
@@ -39,7 +39,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
 </string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="main">
        <property name="sizePolicy">
@@ -110,7 +110,7 @@ QPushButton:hover {
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>../images/Logo v1-whiteline.png</pixmap>
+             <pixmap>images/Logo v1-whiteline.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -515,7 +515,7 @@ Additional resources are also provided for students.</string>
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../images/wellnesslogos/wellnessicon-academic.png</pixmap>
+                   <pixmap>images/wellnesslogos/wellnessicon-academic.png</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -615,7 +615,7 @@ hr { height: 1px; border-width: 0; }
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../images/wellnesslogos/wellnessicon-mental.png</pixmap>
+                   <pixmap>images/wellnesslogos/wellnessicon-mental.png</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -728,7 +728,7 @@ hr { height: 1px; border-width: 0; }
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../images/wellnesslogos/wellnessicon-physical.png</pixmap>
+                   <pixmap>images/wellnesslogos/wellnessicon-physical.png</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -813,7 +813,7 @@ hr { height: 1px; border-width: 0; }
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../images/wellnesslogos/wellnessicon-financial.png</pixmap>
+                   <pixmap>images/wellnesslogos/wellnessicon-financial.png</pixmap>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -1183,7 +1183,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                <enum>Qt::PlainText</enum>
               </property>
               <property name="pixmap">
-               <pixmap>../images/qmap/qmap_000.png</pixmap>
+               <pixmap>images/qmap/qmap_000.png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>

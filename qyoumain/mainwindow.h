@@ -47,6 +47,10 @@ private slots:
 
     void on_studentWellnessButton_clicked();
 
+    void on_scheduleButton_clicked();
+
+    void on_toDoListButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -1,6 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
+#include <QProcess>
+#include <QUrl>
+#include <QDesktopServices>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -43,5 +47,19 @@ void MainWindow::on_studentWellnessMenuButton_clicked()
 void MainWindow::on_studentWellnessButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_scheduleButton_clicked()
+{
+    QDesktopServices::openUrl(QUrl(QDir::currentPath() + "/calendarbuild/qYouCalendar.exe"));
+    this->close();
+}
+
+
+void MainWindow::on_toDoListButton_clicked()
+{
+    QDesktopServices::openUrl(QUrl(QDir::currentPath() + "/todolistbuild/todo-list.exe"));
+    this->close();
 }
 
