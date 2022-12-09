@@ -13,8 +13,10 @@ The program is built using Qt Studio and C++.
 ## Project Division Leads
 Assembly Lead - Ciaran Byles-Ho
 User Interface Lead - Zeerak Asim
+Documentation Lead - Anna Wasylyk
+Meetings Lead - Quinn Bazuk
 
-| Lead | Component |
+| Lead | Feature |
 | ----------- | ----------- |
 | Quinn Bazuk (and Ciaran Byles-Ho) | Home Page |
 | Dario Fernandes | Calendar |
@@ -22,7 +24,6 @@ User Interface Lead - Zeerak Asim
 | Ciaran Byles-Ho | Student Map |
 | Mohammad Aziz | GPA Calculator |
 | Richard Bryan Concio and Anna Wasylyk | Student Wellness |
-| ----------- | ----------- |
 
 
 
